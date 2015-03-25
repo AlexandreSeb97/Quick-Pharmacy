@@ -27,6 +27,6 @@ def list_Rx(request, district):
 def sources(request):
 	return render_to_response('index.html')
 
-def index(request):
+def results(request):
 	assert isinstance(request, HttpRequest)
 	return render(request, 'web_app/index.html', context)
