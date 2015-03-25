@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from django.contrib import admin
+from web_app import views
 
 urlpatterns = patterns('',
     url(r'^web_app/', include('web_app.urls')),

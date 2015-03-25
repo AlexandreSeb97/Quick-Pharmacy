@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns('',
-	url(r'^home$', 'web_app.views.home', name='home'),
+urlpatterns = patterns('web_app.views',
+	url(r'^accueil$', 'home'),
+	url(r'^index$', 'index'),
+	url(r'^about$', 'sources'),
 )
