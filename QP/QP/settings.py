@@ -10,13 +10,18 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from os import path
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'static'),
 )
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
@@ -73,10 +78,10 @@ DATABASES = {
     }
 }
 
-import dj-database-url
-DATABASES['default'] = dj-database-url.config()
-
-DATABASES['default']['ENGINE'] = 'django_postgrespool'
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+DATABASES['default']['NAME'] = path.join(PROJECT_ROOT, 'db.sqlite3')
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
